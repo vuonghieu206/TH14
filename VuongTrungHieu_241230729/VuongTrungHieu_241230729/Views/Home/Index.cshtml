@@ -1,0 +1,23 @@
+﻿@model List<VuongTrungHieu_241230729.Models.Sach>
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+<div id="noidung">
+    <partial name="_DanhSach" model="Model" view-data="ViewData" />
+</div>
+@section Scripts{
+    <script>
+        $(function(){
+            $(".loai").click(function(e){
+                e.preventDefault();
+                var id = $(this).data("id");
+                $("#noidung").load("/home/SachTheoLoai/" + id);
+                $(".menu li").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+        });
+    </script>
+}
+
+
+
